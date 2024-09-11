@@ -1,6 +1,9 @@
 ﻿#include <iostream>
 #include <fstream>
+#include <fstream>
+#include "json.hpp"
 
+using json = nlohmann::json;
 
 class AirConditioner {
 private:
@@ -77,6 +80,9 @@ public:
 
 int main()
 {
-    std::cout << "Hello World!\n";
+   AirConditioner first= AirConditioner(10, 10);
+    json j;
+    j["temperature"] = first.getTemp();
+    j["blowing"] = first.getBlowing();
 }
 

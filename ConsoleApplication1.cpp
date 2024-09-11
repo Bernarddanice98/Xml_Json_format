@@ -84,5 +84,7 @@ int main()
     json j;
     j["temperature"] = first.getTemp();
     j["blowing"] = first.getBlowing();
+    std::ofstream o("pretty.json");
+    o << std::setw(4) << j << std::endl;
 }
 

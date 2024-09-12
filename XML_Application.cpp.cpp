@@ -2,11 +2,26 @@
 //
 
 #include <iostream>
-#include "C:\Users\Danice\OneDrive\Documents\ConsoleApplication1\pugixml-1.14"
+#include "C:\Users\Danice\OneDrive\Documents\ConsoleApplication1\pugixml-1.14\src\pugixml.hpp"
+#include "AirConditioner.h"
 using namespace std;
+
+pugi::xml_document generateXml(AirConditioner c) {
+    pugi::xml_document doc;
+    pugi::xml_node root = doc.append_child("AirConditioner");
+    root.append_child("CurrentTemperature").text().set_value(std::to_string(c.getTemp()).c_str());
+    root.append_child("BlowingIntensity").text().set_value(std::to_string(c.getBlowing).c_str());
+    return doc;
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    AirConditioner cond=AirConditioner(12,20);
+    pugi::xml_document document = generateXml(cond);
+
+    document.save_file("AirconditionerXmlData");
+    return 0;
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

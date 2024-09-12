@@ -13,7 +13,7 @@ private:
 
 
 public:
-    AirConditioner(int temperature, int blowing_intensity) :temperature(temperature), blowing_intensity(blowing_intensity) {};
+    AirConditioner(int temperature, int blowing_intensity){};
 
     int getTemp() {
         return temperature;
@@ -38,43 +38,10 @@ public:
 
 
 
-    void t_minus() {
-
-        if (temperature < 30 && temperature>10) {
-            temperature--;
-        }
-
-    }
-
-
-    void t_plus(int) {
-        if (temperature > 10 && temperature < 30) {
-            temperature++;
-        }
-
-    }
-
-
-    void b_minus() {
-        if (blowing_intensity < 10 && blowing_intensity>1) {
-            blowing_intensity--;
-        }
-        else if (blowing_intensity < 1) {
-            blowing_intensity = 10;
-        }
-    }
-
-
-    void b_plus() {
-        if (blowing_intensity < 10 && blowing_intensity>1) {
-            blowing_intensity++;
-        }
-        else if (blowing_intensity > 10) {
-            blowing_intensity = 1;
-        }
-    }
-
-
+    void t_minus() {}
+    void t_plus(int) {}
+    void b_minus() {}
+    void b_plus() {}
 };
 
 
